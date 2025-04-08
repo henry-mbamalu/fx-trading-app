@@ -98,6 +98,8 @@ DATABASE_PASSWORD=yourpassword
 DATABASE_NAME=fx_trading
 REDIS_URL=redis://localhost:6379
 REDIS_PASSWORD=
+ADMIN_EMAIL=admin@gmail.com
+ADMIN_PASSWORD=adminpassword
 
 ```
 
