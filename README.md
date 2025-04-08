@@ -17,6 +17,9 @@ https://myaccount.google.com/apppasswords
 # for windows user 
 wsl --install
 
+# for windows user (Run this command to start using Linux commands) 
+wsl
+
 # Update Your Packages
 sudo apt update && sudo apt upgrade -y
 
