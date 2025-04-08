@@ -6,7 +6,7 @@ export class RedisService {
   private readonly LOCK_PREFIX = 'lock:';
   constructor(
     @Inject('REDIS_CLIENT') private readonly redis: RedisClientType
-  ) {}
+  ) { }
 
   async get(key: string): Promise<string | null> {
     return await this.redis.get(key);
@@ -31,9 +31,9 @@ export class RedisService {
   ): Promise<string | null> {
     const lockKey = `${this.LOCK_PREFIX}${key}`;
     const lockId = Math.random().toString(36).substring(2, 12);
-    
+
     let retries = 0;
-    
+
     while (retries < maxRetries) {
       try {
         const result = await this.redis.set(lockKey, lockId, {
@@ -42,7 +42,6 @@ export class RedisService {
         });
 
         if (result === 'OK') {
-          console.log(`Lock acquired for ${key}`)
           return lockId;
         }
 
@@ -51,12 +50,9 @@ export class RedisService {
           await new Promise(resolve => setTimeout(resolve, retryDelay));
         }
       } catch (error) {
-        console.log(`Error acquiring lock for ${key}`, error)
         throw error;
       }
     }
-
-    console.log(`Failed to acquire lock for ${key} after ${maxRetries} retries`)
     return null;
   }
 
@@ -73,18 +69,12 @@ export class RedisService {
         end
       `;
 
-      const result = await this.redis.eval(luaScript, {
+      await this.redis.eval(luaScript, {
         keys: [lockKey],
         arguments: [lockId]
       });
 
-      if (result === 1) {
-        console.log(`Lock released for ${key}`);
-      } else {
-        console.log(`Lock release failed for ${key} - lock ID mismatch or expired`);
-      }
     } catch (error) {
-      console.log(`Error releasing lock for ${key}`, error);
       throw error;
     }
   }

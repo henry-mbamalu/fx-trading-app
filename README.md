@@ -93,13 +93,14 @@ GMAIL_PASS=your-16-char-app-password
 PORT=3000
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
-DATABASE_USERNAME=postgres
-DATABASE_PASSWORD=yourpassword
-DATABASE_NAME=fx_trading
+DATABASE_USERNAME=fxuser
+DATABASE_PASSWORD=fxpassword
+DATABASE_NAME=fx_trading_app
 REDIS_URL=redis://localhost:6379
 REDIS_PASSWORD=
 ADMIN_EMAIL=admin@gmail.com
 ADMIN_PASSWORD=adminpassword
+RATE_API_URL=https://open.er-api.com
 
 ```
 

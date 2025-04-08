@@ -3,6 +3,7 @@ import { FxService } from './fx.service';
 import { RedisService } from 'src/redis/redis.service';
 import axios from 'axios';
 import { InternalServerErrorException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 // Mocking the entire axios module
 jest.mock('axios');
@@ -32,6 +33,15 @@ describe('FxService', () => {
             del: redisClientMock.del,
           },
         },
+        {
+          provide: ConfigService,
+          useValue: {
+            get: jest.fn().mockImplementation((key: string) => {
+              if (key === 'RATE_API_URL') return 'https://open.er-api.com';
+              return null;
+            }),
+          },
+        }
       ],
     }).compile();
 
