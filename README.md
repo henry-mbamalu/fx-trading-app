@@ -108,25 +108,25 @@ RATE_API_URL=https://open.er-api.com
 ```
 
 ```bash
-$ npm install
+npm install
 ```
 ```bash
-$ npm run build
+npm run build
 ```
 ```bash
-$ npm run migration:run
+npm run migration:run
 ```
 ```bash
-$ npm run seed
+npm run seed
 ```
 ## Compile and run the project
 
 ```bash
 # development
-$ npm run start
+npm run start
 
 # watch mode
-$ npm run start:dev
+npm run start:dev
 
 ```
 
@@ -134,4 +134,4 @@ $ npm run start:dev
 
 ```bash
 # unit tests
-$ npm run test
+npm run test
