@@ -1,3 +1,28 @@
+## FX Trading App
+
+A high-performance foreign exchange (FX) trading platform built with **NestJS**, designed to handle real-time trading operations efficiently and securely.
+
+### Tech Stack
+- **NestJS** – Scalable and modular backend framework.
+- **TypeORM** – For managing PostgreSQL database interactions using a clean repository pattern.
+- **PostgreSQL** – Robust relational database for storing trades, user data, and market rates.
+- **Redis** – Used for:
+  - **Caching** exchange rates and frequent queries to enhance speed and reduce DB load.
+  - **Distributed locking** to prevent race conditions during concurrent trade executions.
+- **Throttler Module** – Ensures rate limiting to prevent abuse and maintain system stability.
+
+### Key Features
+- Real-time FX rate fetching and trading.
+- Caching for optimized performance and faster response times.
+- Distributed locking mechanism to ensure safe concurrent operations.
+- Rate limiting to prevent brute-force attacks and excessive API calls.
+- Modular architecture for easy testing and scalability.
+
+### Testing & Reliability
+- Unit and integration tests to ensure core logic and edge cases are covered.
+- Error handling and fallback strategies for better user experience and system resilience.
+
+
 ## Architectural flow diagram
 ![Architectural flow diagram](https://github.com/henry-mbamalu/fx-trading-app/blob/master/FX-trading-app.jpg?raw=true)
 
